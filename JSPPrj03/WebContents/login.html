@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   .main  { width:200px; 
+       border:1px solid black;
+       margin : 30px auto;
+       text-align:center;
+   }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $( function() {
+
+  });
+</script>
+</head>
+<body>
+  <form action="loginaction.jsp" method="POST">
+  <div class="main">
+    <p><input type="text"     name="userid" placeholder="아이디" required /></p>
+    <p><input type="password" name="passwd" placeholder="암호"  required  /></p>
+    <p><input type="submit"   value="로그인" /></p>
+  </div>
+  </form>
+  <form action="/JSPPrj03/login" method="POST">
+  <div class="main">
+    <p><input type="text"     name="userid" value="admin" 
+       placeholder="아이디" required /></p>
+    <p><input type="password" name="passwd" placeholder="암호"  required  /></p>
+    <p><input type="submit"   value="로그인" /></p>
+  </div>
+  </form>
+  <form action="/JSPPrj03/MemregServlet" method="POST">
+  <div class="main">
+    <p><input type="text" name="memname" placeholder="이름" value="이수신"  required  /></p>
+    <p><input type="text"     name="userid" value="sunsin" placeholder="아이디" required /></p>
+    <p><input type="password" name="passwd" placeholder="암호" value="1234"  required  /></p>
+    <p><input type="text" name="tel" placeholder="전화번호" value="010-9999-9999"  required  /></p>
+    <p><input type="text" name="email" placeholder="이메일" value="sunsin@naver.com" required  /></p>
+    <p><input type="submit"   value="회원가입" /></p>
+  </div>
+  </form>
+  
+</body>
+</html>
+
+
+
+
+
