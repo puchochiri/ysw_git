@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  #output {
+     padding   : 20px;
+     font-size : 32px;  
+  }
+</style>
+<script>
+  window.onload = function() {
+	  var html  = '';
+	  //          0    1   2   3   4   5
+	  var arrA = [277, 83, 55, 36, 24, 91];	 // 베얄
+	 // var  arrA2 = new Array( 5 ); // 배열5개생성 new int[5];
+	 // var  arrA3 = new Array(5, 6, 7, 8); 
+	    // 배열5개생성 new int[] {5, 6, 7, 8};
+	  arrA[9] = 999; // 배열의 크기 10으로 늘어난다
+	  var  sum = 0;
+	  for (var i = 0; i < arrA.length; i++) {
+		  html  +=  arrA[i] +  '&nbsp;';
+		  sum   +=  arrA[i];
+	  }
+	  html += '<br>sum=' + sum + '<br>';
+	  // number, string, boolean, function, object( {}), 배열([])
+	 
+	  var arrB = [273, 'String', true, {}, function() {}, [273,104] ];
+	  html  += arrB + '<br />'; // 배열출력 ,로 구분되어출력
+	  
+	  var arrC = [1, 2];
+	  arrC.push(3);   // 배열의 크기가 증가: Stack 처럼 사용한다
+	  arrC.push(4);
+	  arrC.push(5);
+	  	  
+	  
+	  for (var num in arrC) {
+		  html += arrC[num] + " ";
+	  }
+	  html += '<br>';
+	  
+	  arrC.pop();   // 배열크기가 줄어둠
+	  html += arrC + '<br>';
+	  
+	  // let 은 지역변수 선언 ecma 5 이상
+	  // ` (backtick)  억음
+	  let  cnt = 0;   
+	  for ( const  element of [1,2,3,4]) {
+		  html += `${cnt} 번째 요소는 ${element}입니다` + '<br>';
+		  cnt++;
+	  }
+	  
+	  //-------------------------------
+	  // 배열 정렬
+	  var  arrD = ['kiwi', 'apple', 'berry', 'orange'];
+	  html  +=   arrD             + '<br>';
+	  arrD.sort();
+	  html  +=   arrD             + '<br>';
+	  html  +=   arrD.reverse()   + '<br>';
+	  
+	  var  arrE = [2, 1, 8, 13];
+	  html  +=   arrE             + '<br>';
+	  arrE.sort();                            // 문자로 정렬
+	  html  +=   arrE             + '<br>';   // 1,13,2,8
+	  
+	  var  arrF  = [2, 1, 8, 13];;
+	  html  +=   arrF             + '<br>';   
+	  // callback 함수 : 함수의 인자가 함수인 경우
+	  arrF.sort( function (a, b) {
+		  //return  a - b;
+		  return  b - a;
+	  } );
+	  html  +=   arrF             + '<br>';    
+	     // 1,  2, 8, 13 (a-b)  : asc
+	     // 13, 8, 2,  1 (b-a)  : desc
+	  	  
+	  var div1 = document.getElementById('output');
+	  div1.innerHTML = html; 
+  }
+</script>
+</head>
+<body>
+  <div id="output"></div>
+</body>
+</html>
+
+
+
+
+

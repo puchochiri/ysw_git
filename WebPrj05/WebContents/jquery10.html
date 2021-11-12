@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+	$(function(){
+		// 숫자(keyCode: 28~57)만 입력가능
+		$('input[name=num]').keypress(function(e){
+				console.log(e);
+				if(48<= e.keyCode && e.keyCode <= 57)
+					;
+				else
+					 return false;
+		});
+		
+	})
+	// 이름입력한 후 엔터를 이력 하면 다음항목(이매일)로 이동
+	$('input[name=fullName]').on('keypress',function(e){
+		if(e.keyCode == 13){
+			$('input[type=email]').focus();
+			
+		}
+	})
+	
+	//특수키 조합은 keyup, keydown 이벤트 사용
+	/* $('input[name=memo]').keyup(function(e){
+		console.log(e);
+		var keyInfo  = '<ul>';
+		keyInfo			+= '<li>key:' + e.which + '</li>';
+		
+		$('div').append(keyInfo);
+		
+	}) */
+	$('input').on({
+		/*
+		keyup : function(e){
+			console.log(e);
+			var keyInfo  = '<ul>';
+			keyInfo			+= '<li>key:' + e.which + '</li>';
+			keyInfo			+= '<li>ctrl:' + e.ctrlKey + '</li>';
+			keyInfo			+= '<li>Alt:' + e.altKey + '</li>';
+			keyInfo			+= '<li>Shift:' + e.shiftKey + '</li>';
+			
+			$('div').html(keyInfo);
+
+		}, */
+		
+		keypress : function(e){
+			if(e.keyCode ==13){
+				//var nextElement = $(this).next(); // <br>
+				var nextInputElement = $(this).next().next(); // <br>
+				console.log(nextInputElement);
+				nextInputElement.focus();
+				
+			}
+			
+		},
+		
+		focus : function(){
+			$(this).css('background-color','yellow');
+		},
+		blur	: function(){
+			$(this).css('background-color','white');
+			
+		}
+				
+	})
+	
+
+});
+</script>
+</head>
+<body>
+	번호:<input type="text" name="num" /><br>
+	이름:<input type="text" name="fullName" /><br>
+	이메일:<input type="email" name="email" /><br>
+	메모:<input type="text" name="memo" /><br>
+	비밀번호:<input type="password" name="pass" /><br>
+	<input type="submit" value="가입" />
+	<div id=""></div>
+	
+</body>
+</html>

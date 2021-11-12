@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>무한 스크롤</title>
+<style></style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	// window : 자바스크립트 객체 이름 - browser
+	// window.alert(), window.document. ...., window.location.href=
+$(function(){
+	var cnt = 0;
+	$(window).scroll(function(){
+		if(Math.round($(window).scrollTop())>=
+			$(document).height()-$(window).height()){
+			for (var i = 0; i < 20; i++) {
+				cnt++;
+				$('<h1>Infinity Scroll' + cnt + '</h1>').appendTo('body');		
+			}
+		}
+	});
+	for (var i = 0; i < 20; i++) {
+		$('<h1>Infinity Scroll' + i + '</h1>').appendTo('body');		
+	}
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

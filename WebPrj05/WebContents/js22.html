@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   div, h1, p {  border:1px solid black;  padding:10px;  }
+</style>
+<script>
+ 
+</script>
+</head>
+<body>
+  <h2>이벤트 버블링</h2>
+  <div  onclick="alert('outer div  클릭')">
+    <div onclick="alert('inner div  클릭')">
+      <h1 onclick="alert('h1 클릭')">
+         <p onclick="alert('p 클릭')">Hello</p>
+      </h1>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

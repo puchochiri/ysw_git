@@ -1,0 +1,45 @@
+single tag
+<img src="" />
+<img src="" >
+<br />
+<br>
+
+SGML : 중앙도서관
+SGML 파생 된 HTML
+SGML 파생 된 XML - 규칙철저
+
+XML 규칙
+1. 대소문자 구분
+2. 모든 TAG 는 쌍(pair)으로 작업
+   <h1></h1>  
+   <br />  : ok
+     <br>    : not ok   
+3. 모든 속성은 name="value" 로 표기한다 
+   <input type="radio" checked >            : not ok
+   <input type="radio" checked="checked" />  : ok
+4. xml 반드시 .. 로 시작한다
+<?xml version="1.0" encoding="utf-8" ?>
+5. 한개의 문서(document) 는 한개의 root element만 존재한다 
+6. 주석(<!-- -->)과 xml 선언은 태그안에 위치할 수 없다   
+ 
+XML - eXtensible Markup Lanugae
+  태그를 마음대로 생성가능
+
+JavaScript  Object   Notation
+ 자바스크립트 객체 표현법
+   JSON 
+
+jsp, spring 
+  xml  : 설정파일정보고관
+  json : 데이터교환 
+
+
+html 4.01  : <br>, <img src="">
+xhtml 1.0  : 웹 표준 -  웹2.0  
+     w3c : world wide web 컨소시음
+  html 규칙
+html 5 
+
+
+
+

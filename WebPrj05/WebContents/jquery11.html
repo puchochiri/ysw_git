@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img {	
+				width: 200px; height: 200px;
+				position:relative;	
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+	$('img').animate({left:'+=100px'},1000);
+	$('img').animate({width:'+=100px'},2000);
+	$('img').animate({height:'+=100px'},1500);
+	
+	setTimeout(function(){
+		//애니메이션 큐를 제거한다
+		$('img').clearQueue();
+		$('img').hide();
+	}, 6*1000);
+
+});
+</script>
+</head>
+<body>
+	<img src="img/Koala.jpg" />
+</body>
+</html>

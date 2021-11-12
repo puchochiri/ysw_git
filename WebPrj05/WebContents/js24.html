@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+  // submit 버튼 클릭시 form tag에 있는  onsubmit 이 발생
+  // action 에 있는 페이지로 값(input)들을 전달
+  window.onload = function() {
+	 var  form1      =  document.getElementsByTagName('form')[0];
+	 // 이벤트 진행 : return true;
+	 // 이벤트 취소 : return false;
+	 form1.onsubmit  =  function(e) {
+		 var  txtname   =  document.getElementById('name');
+		 if(txtname.value.length < 2) {
+			 alert('이름은 2자이상을 입력하세여');
+			 return false; 
+		 }
+		 // 전화번호 체크
+		 // 모두 숫자
+		 // 첫자리 2,3자리 - 둘재짜라 3, 4 - 마지막 4자리
+		 // 정규식 : regular expression 규칙을 정해논 식
+		 // \d : 숫자   {3,4} : 3~4자리   - : 의미없는 문자 -
+		 // 010-1234-5555	
+		 // ^  : 로 시작되는 
+		 // $  : 로 끝나는
+		 // ^정규식$ : 정규식과 일치하는 뜻
+		 var  regExp1  = /^\d{2,3}-\d{3,4}-\d{4}$/gim;
+		 var  txttel   =  document.getElementById('tel');
+		 if(txttel.value.match(regExp1) != null ) {
+			// alert('Good')
+		 } else {
+			 alert('전화번호를 다시입력하세요');
+			 return false;
+		 }	 
+		 // 주민등록번호 (\d{6}[ ,-]-?[1-4]\d{6})|(\d{6}[ ,-]?[1-4])
+		 //   /^\d{6}-\d{7}$/gim
+		 
+		 var regExp2 = /^(\d{6}[ ,-]-?[1-4]\d{6})|(\d{6}[ ,-]?[1-4])$ /gim;
+		 var txtnid  =  document.getElementById('nid');
+		 if(txtnid.value.match(regExp2) == null) {
+			 alert('주민등록번호가 틀립니다');
+			 return false;
+		 }
+         
+		 // 이메일 (([\w!-_\.])*@([\w!-_\.])*\.[\w]{2,3})
+		 var regExp3 = /^(([\w!-_\.])*@([\w!-_\.])*\.[\w]{2,3})$/g;
+		 var txtemail = document.getElementById('email');
+		 if(txtemail.value.match(regExp3) == null) {
+			 alert('이메일 주소가 틀립니다');
+			 return false;
+		 }
+         
+		 // 숫자     /^[0-9]+$/g   ,  \d+
+		 //var regExp4 = /^[0-9]+$/g;
+		 var regExp4 = /^\d+$/g;
+		 var txtpay = document.getElementById('pay');
+		 if(txtpay.value.match(regExp4) == null) {
+			 alert('숫자가 아닙니다');
+			 return false;
+		 }
+		 
+		 
+		 return true;
+	 } 
+  }
+</script>
+</head>
+<body>
+   <h2>회원가입(input validation)</h2>
+   <form action="js24_process.jsp" method="GET">
+     <table>
+      <tr>
+        <td>이름</td>
+        <td><input type="text" name="name" id="name" value="갈동이"/></td>
+      </tr>
+      <tr>
+        <td>전화번호</td>
+        <td><input type="tel" name="tel" id="tel" value="010-1234-5555"/></td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td><input type="email" name="email" id="email" /></td>
+      </tr>
+      <tr>
+        <td>주민등록번호</td>
+        <td><input type="text" name="nid" id="nid" value="040404-4123456"/></td>
+      </tr>
+      <tr>
+        <td>숫자만, 월급</td>
+        <td><input type="text" name="pay" id="pay" /></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="submit 전송" />
+        </td>
+      </tr>
+     </table>
+   </form>
+</body>
+</html>
+
+
+
+
+
+
+
+

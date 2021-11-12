@@ -1,0 +1,29 @@
+CREATE TABLE   MEMBER
+(
+    MEMID     NUMBER(7)     PRIMARY KEY
+  , MEMNAME   VARCHAR2(30)  NOT NULL
+  , USERID    VARCHAR2(12)  NOT NULL
+  , PASSWD    VARCHAR2(12)  NOT NULL
+  , TEL       VARCHAR2(20)
+  , EMAIL     VARCHAR2(300)
+  , MPOINT    NUMBER(10)    DEFAULT 0
+  , JOINDATE  DATE          DEFAULT SYSDATE
+);
+
+INSERT INTO   MEMBER (  MEMID, MEMNAME, USERID, PASSWD, TEL, EMAIL   )
+   VALUES  (  (SELECT NVL(MAX(MEMID),0)+1 FROM MEMBER), 
+     '관리자', 'admin', '1234', '010-1234-1234', 'admin@green.co.kr'  );
+
+INSERT INTO   MEMBER (  MEMID, MEMNAME, USERID, PASSWD, TEL, EMAIL   )
+   VALUES  (  (SELECT NVL(MAX(MEMID),0)+1 FROM MEMBER), 
+     '관리자', 'sky', 'blue', '010-4321-1234', 'sky@green.co.kr'  );
+commit;
+
+select * from member;
+
+
+
+
+
+
+

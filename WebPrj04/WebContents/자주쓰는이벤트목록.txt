@@ -1,0 +1,24 @@
+onblur   : lostfocus 선택해제되면
+onfocus  : gotfocus  포커스를 받으면
+onchange : 값(value)이 바뀌면
+onclick  : element 가 클릭되면
+ondblclick : 더블클릭
+
+onkeypress : 키보드를 눌렀다 띤다   : space key 누른다 
+onkeyup    : 키가 눌렀다가 떨어질때 : 특수키조합
+onkeydown  : 키가 계속눌러진 상태   : 특수키조합
+
+onmousemove : 마우스 움직일때
+onmouseup   : 마우스 버튼이 눌러졋다가 떨어질때  -> 메뉴활성화
+onmousedown : 마우스 버튼이 눌러진 동안
+
+onmouseenter : 어떤영역안으로 마우스가 진입할때
+onmouseleave : 어떤영역밖으로 마우스가 나갈때
+
+onmouseover  : 어떤영역위에 마우스커서가 계속있을때 
+onmouseout   : 어떤영역밖에 마우스커서가 존재할때
+
+
+
+
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+	//odd : 홀수, even : 짝수
+	$('tr:odd').css({backgroundColor:'white', color:'black'});
+	$('tr:even').css({backgroundColor:'black', color:'white'});
+	$('tr').eq(0).css({backgroundColor:'black', color:'yellow'});
+	/* $('tr').first().css({backgroundColor:'black', color:'yellow'}); */
+	/* $('tr:first').css({backgroundColor:'black', color:'white'}); */
+	
+	$('button').on('click',function(event){
+		console.dir(this); // this = event.target ==> console window일때 다름
+		//console.dir(event.target);
+		//alert(event.target.innerHTML);
+		//alert(this.innerHTML);
+	  if(this.innerHTML == 'Click Me Show'){
+		  let table = document.querySelector('table');
+		  table.style.display = 'block';
+		  //table.style.visibility = 'visible';
+		  //$('table').show();
+	  }
+	  if(this.innerHTML == 'Click Me Hide'){
+		  //$('table').hide();
+		  let table = document.querySelector('table');
+	  table.style.display = 'none';
+		  //table.style.visibility = 'hidden';
+	  }	
+	})
+	/* 
+	$('tr:not(tr:first)').on('mouseover',function(e){
+			$(e.target).css({
+				backgroundColor : 'cyan',
+				color						:	'red'
+			})
+	});
+	$('tr:not(tr:first)').on('mouseout',function(){
+			$(this).css({
+				backgroundColor : 'white',
+				color						:	'black'
+			})
+	});
+ */
+	
+ /*  method chainning */
+	/* $('tr:not(tr:first)').on('mouseover',function(){
+			$(this).css({
+				backgroundColor : 'cyan',
+				color						:	'red'
+			})
+	}).on('mouseout',function(){
+			$(this).css({
+				backgroundColor : 'white',
+				color						:	'black'
+			})
+	}); */
+	
+/* 	$('tr:not(tr:first)').mouseover(function(){
+		$(this).css({
+			backgroundColor : 'cyan',
+			color						:	'red'
+		})
+		
+	});
+	$('tr:not(tr:first)').mouseout(function(){
+		$(this).css({
+			backgroundColor : 'white',
+			color						:	'black'
+		})
+		
+	}); */
+	
+	$('tr:not(tr:first)').on({
+		'mouseover'	:function(){
+			$(this).css({
+				backgroundColor : 'cyan',
+				color						:	'red'
+			})
+		},
+		'mouseout'	:function(){
+			$(this).css({
+				backgroundColor : 'white',
+				color						:	'black'
+			})
+		}
+	});
+ 
+	var sum = 0;
+	$('#btnTot').on('click', function(){
+			$('td:nth-child(3n)').each(function(){
+				console.dir(this);
+				var su = this.innerHTML;
+				/* alert(this.innerHTML); */
+				if(!isNaN(su))
+				sum += parseInt(su);
+				
+			})
+		alert(sum);
+		var tag = '<div>합계:'+ sum +' </div>';
+		$('table').after(tag);
+	});
+	
+ 
+ 
+ 
+});
+</script>
+</head>
+<body>
+	<button>Click Me Show</button>
+	<button>Click Me Hide</button>
+	<button id="btnTot">총계계산</button>
+	<hr>
+	<table>
+		<tr>
+			<td>번호</td>
+			<td>종목</td>
+			<td>수량</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>사과</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>수박</td>
+			<td>500</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>바나나</td>
+			<td>300</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>딸기</td>
+			<td>700</td>
+		</tr>
+	</table>
+	<hr/>
+</body>
+</html>

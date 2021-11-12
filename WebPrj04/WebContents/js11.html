@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  #output { border:1px solid red; height: 400px;}
+</style>
+<script>
+  window.onload = function() {
+	 var output = document.getElementById('output');
+	 // 1초(1000) 만에 한번씩 함수를 실행하시요
+	 var id = setInterval( function() {
+		 output.innerHTML = (new Date()).toLocaleString();
+	 }, 1000);
+	 
+	 // 10 초 후에 timer 멈춘다
+	 setTimeout(function(){
+		 clearInterval( id );
+	 }, 10*1000);
+  }
+</script>
+</head>
+<body>
+   <div id="output"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

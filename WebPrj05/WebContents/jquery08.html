@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+/* $(function(){ */
+	var friends = [];
+	friends.push({name:'강호동',language:'JSP'});
+	friends.push({name:'유재석',language:'Spring'});
+	friends.push({name:'하하',language:'java'});
+	friends.push({name:'미주',language:'Jquery'});
+	console.log(friends);
+	alert(friends);
+	
+/* 	$(function(){
+		var msg = ''; */
+	/*	$.each(friends,function(){
+			msg += '<div>';
+			msg += '<h1>' + this.name 		+ '</h1>';
+			msg += '<p>' 	+ this.language + '</p>';
+			msg += '</div>';
+		}) */
+		
+		
+
+		// console.log(this) --> window : browser --> this 사용불가능 item 사용해야함
+		// console.log(this) --> item
+			
+	$(function(){
+		var msg = '';
+	
+		friends.forEach(function( item ){
+			console.log(this);
+			msg += '<div>';
+			msg += '<h2>' + item.name + '</h2>';
+			msg += '<p>'  + item.language + '</p>';
+			msg += '</div>';
+			
+		});
+		
+		
+		$('body').append( msg );
+	});
+
+</script>
+</head>
+<body>
+	<h2>JSON 객체</h2>
+	
+</body>
+</html>

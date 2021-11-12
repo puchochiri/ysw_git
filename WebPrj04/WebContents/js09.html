@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+  window.onload = function() {
+	 //              0      1      2         3       4 
+	 var  fruits = ['--선택--', '사과', '배', '바나나', '키위', '망고'];
+	 //var  fruits = new Array(10);  // 배열방 10개 만들어라 : 크기
+	 //var  fruits = new Array(10, 20, 30, 40);  // 배열  :[10, 20, 30, 40] 초기값
+	 var  select      = document.getElementsByTagName('select')[0];
+//	 for(var i in fruits) {
+//		 alert(i + ',' + fruits[i]);
+//	 }
+//	 for(var fruit of fruits) {
+//		 alert( fruit );
+//	 }
+	 var  tag      = '';
+	 var  idx      =  1;   
+     for(var fruit of fruits) {
+	     tag +=  '<option value="' +  idx   + '">';
+	     tag +=  fruit
+	     tag +=  '</option>';
+	     idx++;
+     }
+	 select.innerHTML = tag;
+	 
+	 // select 의 값이 바뀌면 : 이벤트 onchange 
+	 console.dir(select);
+	 //select.onchange = function() {
+	 //  alert('aaaa')	
+	 //}
+	 select.addEventListener('change', function(e) {
+		 console.dir(e);
+		 var sel = e.target;  // 내가 선택한 select
+		 var idx = sel.selectedIndex; // 선택한 위치값(0~)
+		 var f   = sel.options[idx].text;    // 망고 
+		// var f   = sel.options[idx].value; // 4 
+		 alert( f );
+	 });
+  }
+</script>
+</head>
+<body>
+  <form action="js09.jsp" method="GET">
+   <select id="fruit" name="fruit"></select>
+   <input type="submit" value="전송" />
+  </form> 
+</body>
+</html>
+
+
+
+
+
+
+
+

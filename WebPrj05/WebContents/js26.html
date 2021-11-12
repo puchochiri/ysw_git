@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   div  {
+       border  : 1px solid blue;
+       padding : 20px;
+       width   : 400px;  
+       margin  :  30px;
+   }
+</style>
+<script>
+  // 자바스크립트 객체
+  var student = {
+      name     : '미주',
+      tel      : '010-2222-3333',
+      age      :  23,
+      toString : function() {
+    	  var  msg   = '';
+    	  msg       += this.name + ',' + this.tel + ',' + this.age;
+    	  return    msg;
+      }
+  }
+
+  window.onload = function() {
+	  var   msg  = '<h1>객체출력</h1>';
+	  msg  += '<div>';
+	  msg  += '이름:' + student.name + '<br>';
+	  msg  += '전화:' + student.tel + '<br>';
+	  msg  += '나이:' + student.age + '<br>';
+	  msg  += '</div>';
+	  msg  += '<div>';
+	  msg  += student.toString();
+	  msg  += '</div>';
+	  
+	  student.email = 'miju@naver.com';  // 객체에 속성을 추가
+	  // delete student.age; // 객체의 속성을 제거
+	  console.log(student);
+	  
+	  msg  +=  '<div>';
+	  msg  +=  JSON.stringify(student);
+	  msg  +=  '</div>';
+	  
+	  // JSON  문자열 -> JS OBject 로 변환
+	  // { "nick" : "아이언맨", "tel" : "010-1111-1111"   }
+	  var json   = '{ "nick" : "아이언맨", "tel" : "010-1111-1111"   }';
+	  console.dir(json); 
+	  alert(json);
+	  var person =  JSON.parse(json);
+	  console.dir(person);
+	  alert(person);
+	  
+	  msg += '<div>';
+	  msg += person.nick + '<br>';
+	  msg += person.tel  + '<br>';
+	  msg += '</div>';
+	  
+	  document.body.innerHTML = msg;
+  }
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

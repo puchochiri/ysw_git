@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XML 조잓</title>
+<style></style>
+<script>
+  // xml 문자열 - data로써
+  var xml   = '<blackpink>';  
+  xml      += '  <member>';
+  xml      += '    <name>로제</name>';
+  xml      += '    <age>21</age>';
+  xml      += '  </member>';
+  xml      += '  <member>';
+  xml      += '    <name>제니</name>';
+  xml      += '    <age>22</age>';
+  xml      += '  </member>';
+  xml      += '</blackpink>';
+  console.dir(xml); // 문자열
+  
+  // xml형태의 문쟈열 -> xml 객체로 변환
+  var  parser   =  new DOMParser();
+  var  xmlDoc   =  parser.parseFromString(xml, 'text/xml'); 
+  console.dir(xmlDoc);
+
+  window.onload = function() {
+      document.body.innerHTML  =  xml + '<br>';
+      document.body.innerHTML +=  xmlDoc + '<br>';
+      
+      // chrome 버전
+      var msg   ='';
+      var name1 = xmlDoc.getElementsByTagName('name')[0];
+      console.log(name1);
+      msg      += name1.innerHTML + '<br>';
+      var age1  = xmlDoc.querySelectorAll('age')[0];
+      msg      += age1.innerHTML  + '<br>';
+      document.body.innerHTML += msg + '<br>';;
+
+      // 버전2 - 옜날 방식
+      var msg2     = '';
+      var xml2     =  xmlDoc.getElementsByTagName('blackpink')[0];
+      var member2  =  xml2.getElementsByTagName('member')[1];
+      var name2    =  member2.getElementsByTagName('name')[0];
+      console.dir(name2);
+      msg2        +=  name2.childNodes[0].nodeValue + '<br>'; 
+      var age2     =  member2.getElementsByTagName('age')[0];
+      msg2        +=  age2.childNodes[0].nodeValue + '<br>'; 
+      
+      document.body.innerHTML += msg2 + '<br>';
+  }
+</script>
+</head>
+<body>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+

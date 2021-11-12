@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- css : cascading style sheet -->
+<!-- external style 외부스타일 -->
+
+<link rel="stylesheet"  href="css/css01.css" />
+
+<style>
+   /* 외부 스타일 */
+   @import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap');
+   h1 { font-family : 'Nanum Brush Script', serif; }
+</style>
+
+<!-- internal style : 내부스타일 -->
+<style>  
+   h1 { color:cyan; }
+   
+   h2 {
+      color:blue;
+      background-color: orange;
+   } 
+   
+   .star    { text-decoration: underline;  }
+   h3.star  { color : pink; }
+   .square  { border:1px solid cyan;  } 
+   
+   .star.square {  font-size:40px; }
+ 
+   h1:first-child { font-size:72px; }
+ 
+   h2:first-of-type { font-size: 100px;} 
+</style>
+</head>
+<body>
+  <!-- inline style : 속성으로 style표현 -->
+  <p>paragraph</p>
+  <h1 style="background-color:red;">제목1 입니다 Hi </h1>
+  <h1 style="background-color:#ff0000">제목1</h1>
+  <h1 style="background-color:rgb(255, 0, 0)">제목1</h1>
+  <h1 style="background-color:hsl(0, 100%, 50%)">제목1</h1>
+  
+  <h2 class="star">header-2</h2>
+  <h2>header-2</h2>
+  <h2>header-2</h2>
+  
+  <h3 class="star square">header-3</h3>
+  <h3>header-3</h3>
+  <h3 class="star">header-3</h3>
+  
+  <h1>새로운 h1</h1>
+  <h1>새로운 h1</h1>
+  <h1>새로운 h1</h1>
+  
+  <h2 class="star">header-2</h2>
+  <h2>header-2</h2>
+  <h2>header-2</h2>
+    
+  
+  
+  
+  
+  
+</body>
+</html>

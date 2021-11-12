@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  div     { border:1px solid blue;   }
+  /* div p  : div 안에 있는 모든 p , 자식, 손자포함 */ 
+  div    p  { background-color: yellow; }  
+  /* div > p : div 의 child node 인 p */ 
+  div  > p  { text-decoration:underline;  }
+  /*  div  + p : div 바로 다음의 p 한개만 */
+  div  + p  { color:green;  }
+  /* div  ~ p :  div 의 평제들 */
+  div  ~ p  { font-size:50px;  }
+ 
+  /* 속성(attribute) 선택자 */
+  [type]        { width:800px; } 
+  [type=text]   { border:1px dotted red; } 
+  
+  [type=number] {
+     border:0px solid black;
+     border-bottom-width: 1px;
+  }
+
+  /* li:first-child : 첫번째 자식이 li 이면 */
+  li:first-child, p:first-child  { color : orange; }
+  
+  li:last-child, p:last-child {  color:cyan; }
+  
+  li:nth-child(2) { backgorund-color : blue; }
+  
+  /* 3번째 li 를 대상으로 1~, odd(홀수), even(짝수) , 3n+1(1, 4, 7, 10, ...)   */
+  li:nth-of-type(3) { background-color: #cccccc; }
+  
+  input:focus { background-color:lime;  }
+  
+</style>
+</head>
+<body>
+   <h1>css selector 사용법</h1>
+   <h2>https://www.w3schools.com/cssref/css_selectors.asp</h2>
+   <ul>
+     <li>사과</li>
+     <li>배</li>
+     <li>바나나</li>
+     <li>딸기</li>
+     <li>
+       <ol>
+         <li>귤1</li> 
+         <li>귤2</li> 
+         <li>귤3</li> 
+         <li>귤4</li> 
+       </ol>
+     </li>
+   </ul>
+   <p>이 p는 어떻게 될까요?</p>
+   <div>
+     <p>문단 1 하하하</p>
+     <p>문단 2 하하하</p>
+     <span>
+       <p>문단 3 하하하</p>
+       <p>문단 3 하하하</p>
+     </span>
+     <p>하하하히</p>
+   </div>
+   <p>새문단 글쓰기</p>
+   <p>새문단 글쓰기</p>
+   <code>Some code ......</code>
+   <p>새문단 글쓰기</p>
+   
+   <input type="text" name="userid" /> <br>
+   <input type="text" name="department" /> <br>
+   <input type="text" name="job" /> <br>
+   <input type="number" name="sal" /> <br>
+ </body>
+</html>
+
+
+
+
+
+
+
+

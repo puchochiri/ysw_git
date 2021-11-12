@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+   function  bulbOn() {
+	   //alert('전구켜짐');
+	   // 1. id=""
+	   // var img = document.getElementById('bulb');  // 한개 찾고
+	   //  img.src = "img/pic_bulbon.gif";
+	   
+	   // 2. <img />
+	   //var imgs = document.getElementsByTagName('img'); //여러개를 찾는다(배열리턴)
+	   //var img  = imgs[0];  // 못찾으면 null	   
+	   // img.src = "img/pic_bulbon.gif";
+	   
+	   // 3. name=""
+	   //var imgs = document.getElementsByName('bulb');
+	   //imgs[0].src = "img/pic_bulbon.gif";
+	   
+	   // 4. class = ""
+	   //var imgs = document.getElementsByClassName('bulb');	   
+	   //imgs[0].src = "img/pic_bulbon.gif";
+	   
+	   // 5. css selector : 결과 1개,  #bulb, .bulb, img, body > img,  [src]
+	   //      4 번쩨 li 찾는다  'li:nth-of-type(4)'
+	   //     nav  li:nth-of-type(3)  
+	   ////var  img = document.querySelector('img');
+	   //var  img = document.querySelector('[src]');
+	   //img.src = "img/pic_bulbon.gif";
+	   
+	   // 6. css selector :  결과 여러개 배열
+	   var  imgs = document.querySelectorAll('[src]');
+	   imgs[0].src = "img/pic_bulbon.gif";
+   }
+   function  bulbOff() {
+	   var img = document.getElementById('bulb');
+	   img.src = "img/pic_bulboff.gif";
+   }
+
+</script>
+</head>
+<body>
+  <h1>자바스크립트로 내용변경</h1>
+  <h2>속성바꾸기</h2>
+    <button onclick="bulbOn()">Turn On the Light</button>
+    <img id="bulb" src="img/pic_bulboff.gif" name="bulb" class="bulb" />
+    <button onclick="bulbOff()">Turn Off the Light</button>
+</body>
+</html>
+
+
+
+
+
+
+

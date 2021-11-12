@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   table, td {  
+      border:1px solid black;
+      border-collapse:collapse;
+   }
+   td { width: 50px; }
+</style>
+<script>
+  //  window.onload - 화면이 다 그려진 후
+  function  makeTable( rows, cols ) {
+	  var html  =  '<table>';
+	  for(var i=1;i<=rows;i++) {
+	  	 html     +=  '<tr>';
+	  	 for(var j=1;j<=cols;j++) {
+	  		 html +=  '<td>';
+	  		 html +=  '1234';
+	  		 html +=  '</td>';
+	  	 }
+	  	 html     +=  '</tr>';
+	  }
+	  html     +=  '</table>';
+	  return  html;
+  }
+  window.onload = function() {
+	  var  btn1 = document.getElementById('btn1');
+	  //console.dir(btn1);
+	  btn1.onclick   = function() {
+		  var div1   = document.getElementById('div1');
+		  var idrows = document.getElementById('rows'); 
+		  var rows   = parseInt(idrows.value);
+		  var idcols = document.getElementById('cols');
+		  var cols   = parseInt(idcols.value);
+		  var html   = makeTable(rows, cols);
+		  div1.innerHTML = html;
+	  }
+	  
+  }
+</script>
+</head>
+<body>
+   줄수<input type="number" id="rows" value="5" min="1" max="10"/> 
+   칸수<input type="number" id="cols" value="3" min="1" max="10"/> 
+   <button id="btn1">Ok</button>
+   <div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

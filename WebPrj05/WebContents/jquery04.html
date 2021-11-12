@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+   $(function() {
+      var array = [
+         {name:'Naver', link:'https://www.naver.com'},
+         {name:'Nate', link:'https://www.nate.com'},
+         {name:'Daum', link:'https://www.daum.net'},
+         {name:'Google', link:'https://www.google.com'},
+         {name:'Microsoft', link:'https://www.microsoft.com'}         
+      ];
+      
+      var  msg = '';
+      // js 명령 : forEach
+      array.forEach( function(item, index) {
+         msg +=  '<li>';
+         msg +=  '<a href="' +  item.link + '">';
+         msg +=  item.name;
+         msg +=  '</a>';
+         msg +=  '</li>';
+      } );
+      $('ul:first').html( msg );
+      
+      // jquery 배열처리  foreach
+      var msg = ''; 
+      $.each(array, function(index, item) {
+         msg +=  '<li>';
+         msg +=  '<a href="' +  item.link + '">';
+         msg +=  item.name;
+         msg +=  '</a>';
+         msg +=  '</li>';
+      });
+      $('ul').eq(1).html( msg ); 
+      
+      // select
+      msg  = '<select name="" id="">';
+      $.each(array, function(index, item) {
+         msg += '<option value="' +  item.link   + '">';
+         msg += item.name;
+         msg += '</option>';
+      })
+      msg += '</select>';
+      $('div:eq(0)').html(msg);
+      
+      // 이동클릭 구현
+      $('#btnGo').on('click', function() {
+         var  link = $('select > option:selected').val();
+         alert( link );
+        // location.href = link;
+         let tag = '<input type="button" id="btnGo2" value="Go" />'; 
+         $('div:eq(1)').after(tag); 
+      })
+      
+      var msg = '';
+      for(  var item  of array  ) {
+         msg += '<input type="radio"  name="portal" ';
+         msg += ' value = "'   + item.link  + '"';
+         msg += ' id    = "'   + item.name  + '" />';
+         msg += '<label for="' + item.name  + '">';
+         msg += item.name;
+         msg += '</label>';
+      }
+    //  alert(msg);
+      $('div:eq(1)').append(msg);
+    // 1번 상황  
+    //  msg  = '<input type="button" id="btnGo2" value="Go" />'; 
+    //  $('div:eq(1)').after(msg);
+
+      // .before()
+      // <div>
+      // .prepend()
+      // 내용
+      // .append()
+      // </div>
+      // .after()
+      // 이벤트연결방법
+      // 1. 원래 있던 Element (tag) 에 이벤트를 거는 방법
+      //  1)  $('#btnGo2').click(funciton() {});
+      //  2)  $('#btnGo2').on('click', funciton() {});
+      // $('#btnGo2').click(function() {
+      //      alert('btnGo2 클릭');
+      //  })
+      
+      // 2. 원래 없었던(동적으로 생성된, 실행할때 추가된) Element (tag) 에 이벤트를 거는 방법
+      // parentnode 를 찾아서 이벤트지정 : on () 으로 지정
+      // $('부모노드').on( '이벤트', '대상', function(e)
+      $('body').on(  'click', '#btnGo2', function(e) {
+        // alert('버튼 클릭');
+         let  link      = '';
+         let  radios    = document.getElementsByName('portal'); 
+         for (var i = 0; i < radios.length; i++) {
+            if(  radios[i].checked == true ) {
+               link = radios[i].value;
+               break;
+            }
+         }
+         alert(link);
+         location.href  = link;
+      }  )
+      
+      
+   });
+</script>
+</head>
+<body>
+   <ul></ul>
+   <ul></ul>
+   <div></div><button id="btnGo">이동</button>
+   <div></div>
+</body>
+</html>
+
+
+
+
+
+
+

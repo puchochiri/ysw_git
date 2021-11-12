@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div { border : 2px solid blue;
+	border-radius : 10px;
+	width : 400px;
+	float : left ;
+	margin : 20px;
+	} 
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	var xml	= '<friends>';
+	xml			+= 	'<friend>'
+	xml			+= 		'<name>강호동</name>'
+	xml			+= 		'<language>JSP</language>'
+	xml			+= 	'</friend>'
+	xml			+= 	'<friend>'
+	xml			+= 		'<name>유재석</name>'
+	xml			+= 		'<language>Java</language>'
+	xml			+= 	'</friend>'
+	xml			+= 	'<friend>'
+	xml			+= 		'<name>하하</name>'
+	xml			+= 		'<language>C#</language>'
+	xml			+= 	'</friend>'
+	xml			+= 	'<friend>'
+	xml			+= 		'<name>미주</name>'
+	xml			+= 		'<language>Spring</language>'
+	xml			+= 	'</friend>'
+	xml			+= '</friends>'
+	
+	alert(xml);
+	$(function(){
+		// js
+		//var parser = new DOMParser();
+		//var xmlDoc = parser.parseFromString(xml, 'text/xml');
+		var xmlDoc = $.parseXML(xml); // jquery
+		alert(xmlDoc);
+		var msg = '';
+		$(xmlDoc).find('friend').each(function(index){
+			msg += '<div>';
+			msg += '<h1> "' + $(this).find('name').text()  +'"</h1>';
+			msg += '<h1> ' + $(this).find('name').text()  +'</h1>';
+			msg += '<h1> ' + $(this).find('language').text()  +'</h1>';
+			msg += '</div>';
+			
+		});
+		
+		
+		$('body').append(msg)
+	
+	});
+</script>
+</head>
+<body>
+ 	<h2>xml 처리</h2>
+	
+</body>
+</html>

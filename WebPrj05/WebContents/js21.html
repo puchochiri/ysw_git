@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+  window.onload = function() {
+	 var  header                     =  document.createElement('h1');  // 메모리 추가
+	 header.style.border             = '2px solid  black';
+	 header.style.color              = 'orange';
+	 header.style.fontFamily         = 'Helvetica';
+	 header.style.backgroundColor    = 'lightblue';	 
+	// header.style.textDecoration   = 'underline';	 
+	 header.style['text-decoration'] = 'underline';	 
+	 header.innerHTML                = '펭귄 그림';
+	 // header.setAttribute('style', '');
+	 document.body.appendChild(header);
+	 
+	 var img = document.createElement('img');
+	 img.setAttribute('src', 'img/Penguins.jpg');
+	 img.setAttribute('width', '500');
+	 img.setAttribute('height', '350');
+	 img.setAttribute('data-value', 'haha');  // 새로운 속성 추가
+	 document.body.appendChild(img);
+	 
+	 var img2        = document.createElement('img');
+	 img2.src        = 'img/Penguins.jpg';
+	 img2.width      =  500;
+	 img2.height     =  350;
+	// img2.data-value = 'haha';  
+	 img2['data-value'] = 'haha';   // 동작안함
+	 document.body.appendChild(img2);
+	 
+	 
+  }
+</script>
+</head>
+<body>
+
+</body>
+</html> 
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  *     { box-sizing : border-box;  }
+  #main { width:960px; margin : 0 auto;  }
+  table  { width:960px; margin : 0 auto;  }
+  table, td {
+     border : 1px solid black;
+     
+			border-collapse: collapse;
+  } 
+  td { width: 240px; float : left; }
+  
+  input {float : left; }
+  
+  #list tr       {  background-color: white;  }
+  #list tr:not(tr:first-child):hover {  background-color: yellow;  }
+</style>
+<script>
+  var   persons = [];  // 배열 생성 - 전역변수
+  
+  // 생성자 함수
+  function  Person(name, email, tel, birth) {
+	  this.name    = name;
+	  this.email   = email;
+	  this.tel     = tel;
+	  this.birth   = birth;
+	  var  today   = new Date();
+	  this.age     = today.getFullYear() - this.birth.substr(0, 4) + 1;
+  }
+  
+  Person.prototype.toString =  function() {
+	  var  msg  = '';
+	  msg      += '<tr>';
+	  msg      += '<td>' + this.name   + '</td>';
+	  msg      += '<td>' + this.email  + '</td>';
+	  msg      += '<td>' + this.tel    + '</td>';
+	  msg      += '<td>' + this.age  + '</td>';
+	  msg      += '</tr>';
+	  return   msg;
+  }
+  
+  function  header() {
+	  var tag   = '';
+	  tag      += '<tr>';
+	  tag      += '<td>이름</td>';
+	  tag      += '<td>이메일</td>';
+	  tag      += '<td>전화</td>';
+	  tag      += '<td>나이</td>';
+	  tag      += '</tr>';
+	  return   tag;
+  }
+  
+  function  displayList( persons ) {
+	  var  list = document.getElementById('list');
+	  var  tag  = '';
+	  tag      += header();
+	  for (var i = 0; i < persons.length; i++) {
+		  tag  += persons[i].toString();
+	  }
+	  list.innerHTML  = tag;
+  }
+  
+
+  window.onload = function() {
+	 var btnAdd = document.getElementById('btnAdd');
+	 btnAdd.addEventListener('click', function() {
+		 var txtname  = document.getElementById('name');
+		 var txtemail = document.getElementById('email');
+		 var txttel   = document.getElementById('tel');
+		 var txtbirth = document.getElementById('birth');
+		 
+		 var name     = txtname.value;
+		 var email    = txtemail.value;
+		 var tel      = txttel.value;
+		 var birth    = txtbirth.value;
+		 
+		 var person   = new Person(name, email, tel, birth);
+		 
+		 persons.push( person );  // 배열에 추가
+		 
+		 displayList (  persons  );  // 전체 다시출력
+		 
+		 var  trs = document.querySelectorAll('#list  tr');
+		// var  trs = document.querySelectorAll('#list > tr');  // 동작안함
+		 // 0 - 제목줄
+		 for (var i = 1; i < trs.length; i++) {
+			 trs[i].onclick = function(e) {
+				 // this == e.target
+				// alert(this.firstChild.innerHTML);
+				 var tds = this.getElementsByTagName('td');
+				 alert(tds[0].innerHTML);
+				 alert( this.innerHTML );
+				 
+			 }	
+		 }
+		 
+	 });
+  }
+</script>
+</head>
+<body>
+  <div id="main">
+    <h2>학생정보</h2>
+    이름<input type="text" id="name" value="홍길동" />&nbsp;&nbsp;
+    이메일<input type="email" id="email" value="honggd@naver.com" />&nbsp;&nbsp;
+    전화<input type="tel" id="tel" value="010-1234-5678" />&nbsp;&nbsp;
+    생일<input type="date" id="birth" value="2021-11-15" />&nbsp;&nbsp;
+    <input type="button" value="Add" id="btnAdd" />
+    <hr />
+    <table id="list"></table>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

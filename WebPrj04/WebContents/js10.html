@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+  function  makeSelect( month ) {
+	  var txtyear = document.getElementById('year');
+	  var year    = txtyear.value;
+	  
+	  //  매월의 마지막 날짜
+	  var  lastDays = [
+		  31, 28, 31, 30, 31, 30, 
+		  31, 31, 30, 31, 30, 31
+	  ]; 
+	  // 2 월 28 or 29 : 윤년 29일 , 평년 28일
+	  // 윤년  1년 : 365.2422 일
+	  //  year % 4 == 0 && year % 100 != 0 || year % 400 == 0 )
+	  if( year % 4 == 0 && year % 100 != 0 || year % 400 == 0 )
+		  lastDays[1] = 29;
+	  else	  
+		  lastDays[1] = 28;
+	  
+	  var tag = '';
+	  for(var i=1; i <= lastDays[month-1]; i++) {
+		  tag += '<option>';
+		  tag += i ;
+		  tag += '</option>';
+	  }
+	  return tag;
+  } 
+
+
+  window.onload = function() {
+      var  selmonth = document.getElementById('selmonth'); 
+      var  selday   = document.getElementById('selday');
+      var  txtyear  = document.getElementById('year');
+      txtyear.onchange = function() {
+    	  selmonth.selectedIndex = 0;
+      }
+      
+      // 월 선택상자
+      var tag1   =  '';
+      tag1   +=  '<option>-선택-</option>';
+	  for(var i=1;i<=12;i++) {
+      	tag1      +=  '<option value="' +  i + '">'
+      	tag1      +=  i + '월'; 
+      	tag1      += '</option>'; 
+	  }
+      selmonth.innerHTML = tag1;
+      
+      // selmonth 값이 바뀌먄
+      selmonth.onchange = function(e) {
+    	  var sel = e.target;    	  
+    	  //alert(sel.value);
+    	  var   tag2       = makeSelect(sel.value);
+    	  selday.innerHTML = tag2;
+      }
+      
+      // 버튼 이벤트 연결 btn1
+      var btn1 = document.getElementById('btn1');
+      btn1.addEventListener('click', function(e) {
+    	  // this : 클릭한 버튼 == e.target
+          var yy    =  txtyear.value;
+          var MM    =  selmonth.value;
+          var dd    =  selday.value;
+          var date1 = yy + '년' + MM + '월' + dd +  '일'; 
+    	  alert(date1);
+          var div1  = document.getElementById('div1');
+          div1.innerHTML = '<h1>' + date1 + '</h1>';
+      });
+  }  
+ 
+</script>
+</head>
+<body>   
+   <input type="number" id="year" value="2021"/>년
+   <select id="selmonth"></select>월
+   <select id="selday"></select>일
+   <button id="btn1">확인</button>
+   <div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

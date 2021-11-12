@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script> 
+  function btnClick() {
+	  var name       = document.getElementById('name');
+	  var nameStr    =  name.value;
+	 // alert('click' + nameStr);
+	  var div1       = document.getElementById('div1');
+	  div1.innerHTML = '<h2>' + nameStr  + '님 환영합니다</h2>' 
+  }
+  
+  var div1 = document.getElementById('div1');  // 사용금지 null
+  alert('1111' + div1); // null
+  
+  // 화면이 다그려지고 난 후 
+  // window onload event
+  /*
+  var aaa =  function () {
+  	  var div1 = document.getElementById('div1'); 
+	  alert('aaa' + div1 );
+  };
+  window.onload = aaa;  //함수명
+  */
+  
+  // window : browser 
+  window.onload = function () {
+   	  var div1 = document.getElementById('div1'); 
+	  alert('aaa' + div1 );
+	  
+	  // 이벤트 리스너 등록 : 이벤트 기능연결
+	  var btn = document.getElementById('btn1');
+	  btn1.onclick  = function() {
+		  alert('하하하');
+	  }
+  };; //함수명
+</script>
+</head>
+<body bgcolor="yellow">
+   이름:<input type="text" id="name" /><br>
+<!--    <button id="btn1" >버튼</button> -->
+   <input type="button" id="btn1" value="버튼" />
+   <div id="div1"></div>
+  </body>
+</html>
+
+
+
+
+

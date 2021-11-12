@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+   // TypeScript : 철저한 type 체크를 하는 자바스크립트 8?
+   function   btn1Click() {
+	   alert('btn1 클릭');	
+	   var   img = 3;
+	   img = img + 123;
+	   console.log(img);
+	   
+	   img = 'a' + '님 환영';
+	   console.log(img);
+	   var img1 = document.getElementById('pic1');
+	   img1.src  = 'img/Chrysanthemum.jpg';
+   }
+   
+   function  btn2Click() {
+	   var pic1    = document.getElementById('pic1');
+	   pic1.src    = 'img/Desert.jpg';
+   }
+   
+   function btn3Click() {
+	   var pics    = document.getElementsByTagName('img'); // 결과 : 배열
+	   pics[0].src = 'img/Hydrangeas.jpg'; 
+   }
+   
+   function btn4Click() {
+	   var  pics  = document.getElementsByName("pic1");
+	   var  pic1  = pics[0];
+	   pic1.src   = 'img/Jellyfish.jpg';	   
+   }
+   // Camel 표현법 : getElementsByClassName
+   // snake 표현법 : first_name, last_name
+   function btn5Click() {
+	   var  pic1 = document.getElementsByClassName('pic1')[0];
+	   pic1.src  = 'img/Koala.jpg';
+   }
+   
+   // 속성선택자 : src=""
+   function btn6Click() {
+	   var pic1    =  document.querySelector("[src]"); 
+	   pic1.src    = 'img/Lighthouse.jpg';
+   }
+   
+   function btn7Click() {
+	   var pics    =  document.querySelectorAll("[src]"); 
+	   pics[0].src = 'img/Penguins.jpg';
+   }
+   
+   function btn8Click( fname ) {
+	   //alert( fname );
+	   var pics    =  document.querySelectorAll("[src]"); 
+	 //  pics[0].src = 'img/' + 'moonface' + '.jpg';
+	   pics[0].src = 'img/' + fname + '.jpg';
+   }
+   
+</script>  
+</head>
+<body>
+  <button id="img1" onclick="btn1Click()">Chrysanthemum</button>
+  <button id="img2" onclick="btn2Click()">Desert</button>
+  <button id="img3" onclick="btn3Click()">Hydrangeas</button>
+  <button id="img4" onclick="btn4Click()">Jellyfish</button>
+  <button id="img5" onclick="btn5Click()">Koala</button>
+  <button id="img6" onclick="btn6Click()">Lighthouse</button>
+  <button id="img7" onclick="btn7Click()">Penguins</button>
+  <button id="img8" onclick="btn8Click('moonface')">moonface</button>
+  <hr>
+  <img id="pic1" class="pic1" name="pic1" src="" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

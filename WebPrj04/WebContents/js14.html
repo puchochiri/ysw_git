@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   input { width:50px;  }
+   .red  { color:red; }
+</style>
+<script>
+  var student = {
+	  // field	  
+	  name : '',
+	  kor  : 0, 
+	  eng  : 0, 
+	  mat  : 0, 
+	  // method
+	  getTot  : function() {
+		  return this.kor + this.eng + this.mat;
+	  },
+	  getAvg  :  function () {
+		  var    avg =  this.getTot() / 3;
+		  return  avg;
+	  },
+	  toString : function() {
+		  var    html = '';
+		  html       += '<ul>';
+		  html       += '<li>이름:' +  this.name  +  '</li>';
+		  html       += '<li>국어:' +  this.kor  +  '</li>';
+		  html       += '<li>영어:' +  this.eng  +  '</li>';
+		  html       += '<li>수학:' +  this.mat  +  '</li>';
+		  html       += '<li>총점:' +  this.getTot()  +  '</li>';
+		  html       += '<li>평균:' +  this.getAvg().toFixed(2)  +  '</li>';
+		  html       += '</ul>';
+		  return html;  
+	  } 
+       
+  }
+  
+  window.onload = function() {
+	  var  txtname = document.getElementById('name');
+	  var  txtkor  = document.getElementById('kor');
+	  var  txteng  = document.getElementById('eng');
+	  var  txtmat  = document.getElementById('mat');
+	  var  btn1    = document.getElementById('btn1');
+	  
+	  btn1.onclick = function () {
+		// alert('ㅋㅋ');
+		 var divoutput  =  document.getElementById('output');
+		 var  html      =  '';
+		 
+		 var  name      =  txtname.value;
+		 var  kor       =  parseInt(txtkor.value);
+		 var  eng       =  parseInt(txteng.value);
+		 var  mat       =  parseInt(txtmat.value);
+		 
+		 // client input validate : 입력데이터 검즘
+		 if(  name.trim() == '') {
+			 html = '<b class="red">이름을 입력하세요</b>';
+			 divoutput.innerHTML = html;
+			 return false;
+		 }
+		 if( !( 0 <= kor && kor <= 100 ) ) {
+			 html = '<b class="red">국어점수(0~100)를 정확히 입력하세요</b>';
+			 divoutput.innerHTML = html;
+			 return false;
+		 }
+		 if(  0 > eng || eng > 100  ) {
+			 html = '<b class="red">영어점수(0~100)를 정확히 입력하세요</b>';
+			 divoutput.innerHTML = html;
+			 return false;
+		 }
+		 if(  0 > mat || mat > 100  ) {
+			 html = '<b class="red">수학점수(0~100)를 정확히 입력하세요</b>';
+			 divoutput.innerHTML = html;
+			 return false;
+		 }
+		 
+		 student.name  = name;
+		 student.kor   = kor;
+		 //alert(student.kor);
+		 student.eng   = eng;
+		 student.mat   = mat;
+		 
+		// var html            =  student.toString(); 
+		 html            =  student; 
+		 divoutput.innerHTML =  html;
+		 
+		 // 객체를 JSON 으로 변환  JSON.stringify( student ) 
+		 alert( JSON.stringify( student ) );  
+		 // JSON 형태의 문자열을 javascript 객체로 변환 JSON.parse( jsonstr );
+	  }
+  }
+</script>
+</head>
+<body>
+  <div  id = "main">
+    <div id="input">
+      이름<input type="text"   id="name" />
+      국어<input type="number" id="kor"  value="100"  min="0"  max="100" />
+      영어<input type="number" id="eng"  value="100"  min="0"  max="100" />
+      수학<input type="number" id="mat" value="100"   min="0"  max="100" />
+      <button id="btn1">입력</button>
+    </div>
+    <div id="output"></div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

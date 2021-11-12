@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+ 
+   window.onload = function() {
+	   var  btn1    = document.getElementById('btn1');
+	   console.dir(btn1);
+	   btn1.onclick = function (e) {
+		   console.dir( e.target );
+		   var v1 = document.getElementById('v1'); // typeof v1 -> object
+		   var n1 = parseFloat(v1.value);            // typeof n1 -> number
+		   var v2 = document.getElementById('v2');
+		   var n2 = parseFloat(v2.value);
+		   
+		   var op = document.getElementById('op');
+		   console.dir(op);
+		   //alert(op.value);
+		   var n = 0;
+		   switch(op.value) {
+		   case '+': n = n1 + n2; break;
+		   case '-': n = n1 - n2; break;
+		   case '*': n = n1 * n2; break;
+		   case '/': n = n1 / n2; break;
+		   }		   
+		   div1.innerHTML = n;
+	   };
+	   var div1 = document.getElementById('div1');	   
+   };
+</script>
+</head>
+<body>
+   값1<input type="text" id="v1" /><br>
+   값2<input type="text" id="v2" /><br>
+   <select size="1" id="op">
+     <option>+</option>
+     <option>-</option>
+     <option>*</option>
+     <option>/</option>
+   </select>
+   <button id="btn1">Add</button>
+   <div id="div1"></div>
+</body>
+</html>
+
+
+
+

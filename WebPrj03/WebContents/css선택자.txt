@@ -1,0 +1,75 @@
+tree
+
+node : type 
+       element   : tag
+       attribute : 속성  name="" value=""
+                      name=value        
+       text      : tag 안의 글자 header
+            <h2>header</h2>
+js
+var  h3 = document.getElementById('male');
+alert(h3.innerText)
+
+  <h3 id="male">남~~~자</h3>
+
+html 문서(document)
+<!doctype html>
+<html>
+ <head>
+  <title>My title</title>
+ </head>
+ <body>
+   <a href>My link</a>  
+   <h1>My header</h1>
+ </body>
+</html>
+
+부모노드 : parent node
+자식노드 : child node
+형제노드 : sibling node
+
+선택자 , 결과가 여러개 일때와 한개일때 구분
+  h3      :  모든 h3        - 결과가 여러개
+  #id     :  id="id"        - 결과가 한개
+  .class  :  class="class"  - 결과가 여러개
+                                                        
+  div   p  : div 안에 있는 모든 p 태그  자식+자손      - 결과 여러개               
+  div > p  : div 안의 child node 만 대상               - 결과 여러개 
+  div + p  : div 바로 다음의 p : div 형제노드중 첫번째 - 결과 한개
+  div ~ p  : div 모든 형제 노드인 p 들                 - 결과 여러개
+  
+  [href]           : href=""       가 있는 모든 tag
+  [href=_BLANK]    : href="_BLANK" 인 모든 tag
+  a[href^="https"]     : a tag 중 href속성이 https 로 시작되는  - https% 
+  a[href$=".pdf"]      : a tag 중 href속성이 pdf 로 끝나는      - %pdf
+  a[href*="w3schools"] : a tag 중 href속성이 w3schools 를 포함  - %w3schools%	
+   
+  a:active	       : a 태그 중에서 마우스가 올라가있는
+  p::after	        p 태그 바로 뒤
+  p::before             p 태그 바로 앞
+  input:focus   
+  input:checked
+  input:disabled 
+  input:enabled 
+   
+  p:first-child       : 첫번째 자식이 p 인 경우
+  p:last-child        : 마지막 자식이 p 인 경우
+
+  p:first-of-type     : p 중에 첫번째 자식
+  p:last-of-type      : p 중에 마지막 자식 
+
+  p:nth-child(2)
+  p:nth-last-child(2)
+
+  p:nth-of-type(2)
+  p:nth-last-of-type(2)
+ 
+
+
+
+
+
+
+
+
+

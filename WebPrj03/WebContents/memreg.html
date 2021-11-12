@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   /* 가운데 정렬 : td안의 요소들  */
+   #last {  text-align : center;  }
+   label {  margin : 0 10px  0  5px  ;  } 
+   /* [name=byear] : 속성 선택자 name="byear" */
+   [name=byear]  { width : 50px;  }
+   [name=bdate]  { width : 30px;  }
+</style>
+</head>
+<body>
+  <h2>회원가입</h2>
+  <form action="memreg_process.jsp" method="GET">
+  <table border="1">
+   <tr> 
+    <td>아이디</td>
+    <td><input type="text"  name="uid" value="sky" /></td>
+   </tr>
+   <tr>
+    <td>암호</td>
+    <td><input type="password" name="pwd"  id="passwd" class="pass" /></td>
+   </tr>
+   <tr>
+    <td>이름</td>
+    <td><input type="text" name="uname" maxlength="10" /></td>
+   </tr>
+   <tr>
+    <td>생년월일</td>
+    <td>
+       <input type="text" name="byear" maxlength="4" /><label>년</label>
+       <select  name="bmonth">      
+         <option value="1">1월</option>
+         <option value="2">2월</option>
+         <option value="3">March</option>
+         <option value="4">4월</option>
+         <option value="5">5월</option>
+         <option value="6">6월</option>
+         <option value="7">7월</option>
+         <option value="8">8월</option>
+         <option value="9">9월</option>
+         <option value="10">10월</option>
+         <option value="11">11월</option>
+         <option value="12">12월</option>
+       </select>       
+       <label>월</label>
+       <input type="text" name="bdate" disabled />
+       <label>일</label>
+    </td>
+   </tr>
+   <tr>
+    <td>성별</td>
+    <td>
+      <input type="radio" name="gender" value="M"  id="male" />
+      <label for="male">남</label>
+      <input type="radio" name="gender" value="F"  id="female" />
+      <label for="female">여</label>
+    </td>
+   </tr>
+   <tr>
+    <td>관심있는 프로그래밍 기술</td>
+    <td>
+      <input type="checkbox" name="prog" value="Java" id="pg1" />
+      <label for="pg1">Java</label>
+      <input type="checkbox" name="prog" value="JSP" id="pg2" />
+      <label for="pg2">JSP</label>
+      <input type="checkbox" name="prog" value="Spring" id="pg3" />
+      <label for="pg3">Spring</label>
+      <input type="checkbox" name="prog" value="Oracle" id="pg4" />
+      <label for="pg4">Oracle</label>
+      <input type="checkbox" name="prog" value="파이썬" id="pg5" />
+      <label for="pg5">파이썬</label>
+     </td>
+   </tr>
+   
+   <tr>
+    <td>파일</td> 
+    <td>
+       <input type="file" name="file1" />
+       <input type="file" name="file2" />
+    </td> 
+   </tr>
+   
+   <tr>
+    <td>자기소개</td> 
+    <td><textarea name="intro" rows="5" cols="80"></textarea></td> 
+   </tr>
+   
+   <tr>
+    <td>날짜</td> 
+    <td><input type="date" name="seldate" /></td> 
+   </tr>
+   <tr>
+    <td>색상</td> 
+    <td><input type="color" name="color" /></td> 
+   </tr>
+   <tr>
+    <td>전화</td> 
+    <td><input type="tel"   name="tel" /></td> 
+   </tr>
+   <tr>
+    <td>이메일</td> 
+    <td><input type="email"   name="email" /></td> 
+   </tr>
+   
+   <tr>
+    <td colspan="2" id="last">
+      <input type="submit" value="가입(submit)" />
+      <input type="image" src="" />
+      <input type="button" value="button" onclick="alert('버튼클릭')" />
+      <button>가입(button tag)</button>
+      
+    </td>
+   </tr> 
+  </table>
+  </form>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

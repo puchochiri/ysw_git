@@ -15,7 +15,7 @@
 	ArrayList<MemberVo> mlist = mDao.getMemberList();
 	String tag  =  "";
 	for(MemberVo member : mlist) {
-		tag    +=  member.toHtmlString( \ );
+		tag    +=  member.toHtmlString( name );
 	}
 	System.out.println(tag);
 	

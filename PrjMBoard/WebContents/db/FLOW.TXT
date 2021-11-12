@@ -1,0 +1,5 @@
+menulist
+index --> MBoard(servlet) --> Action --> ActionFactory --> MenuActionList --> MenuDao --> menulist.jsp
+
+메뉴추가
+menulist.jsp-->index --> MBoard(servlet) --> Action --> ActionFactory -->MenuActionWriteForm -->menuwrite.jsp

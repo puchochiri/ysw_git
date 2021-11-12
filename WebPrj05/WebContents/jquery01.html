@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready( function() {
+	   $('h1').css('color', 'blue');
+	   $('p').css('color', 'red');
+   });
+  // window.onload 한번만 실행가능
+  // $(document).ready() : 여러번 사용가능
+  // $ = jQuery
+  /*
+  $(document).ready( function() { alert('1'); } );
+  $(document).ready( function() { alert('2'); } );
+  jQuery(document).ready( function() { alert('3'); } );
+  */
+
+  /*
+  window.onload = function() {
+	 var  h1  = document.getElementsByTagName('h1');
+	 var  p   = document.getElementsByTagName('p');
+	 console.log(h1)
+	 h1[0].style.color = 'blue';
+	 h1[1].style.color = 'blue';
+	 
+	 for (var i = 0; i < p.length; i++) {
+		p[i].style.color = 'red';
+	}
+  }
+  */
+</script>
+</head>
+<body>
+  <h1>Hello</h1>
+  <p>Lorem Ipsum</p>
+  <h1>Title</h1>
+  <p>Lorem Ipsum</p>
+  <p>Lorem Ipsum</p>
+</body>
+</html>
+
+
+
+
+
+
+
+

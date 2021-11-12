@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  h2 {
+ 	 border : 1px solid blue;      
+     border-radius : 20px; 
+     width:40px;
+     text-align:center;
+     background-color: yellow;
+  }
+</style>
+<script>
+   function  btn1_onclick() {
+	   var input_v1    =  document.getElementById('v1'); 
+	   //alert(v1);
+	  // console.log(v1);
+	   console.dir(v1);
+	   var input_v2    =  document.getElementById('v2');
+	   var v1    =  input_v1.value; 
+	   var v2    =  input_v2.value; 
+	   var v     =  parseInt(v1) + parseInt(v2);
+	   //alert(v);
+	   var div1  = document.getElementById('div1');
+	   div1.innerHTML = '<h2>' + v + '</h2>';
+	   //return v;
+   }
+</script>
+</head>
+<body>
+   값1<input type="text" id="v1" value="10" /><br>
+   값2<input type="text" id="v2" value="20" /><br>
+   <input type  = "button" id="btn1" value="계산" 
+        onclick = "btn1_onclick()" /><br>
+   <div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+

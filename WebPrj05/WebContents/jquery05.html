@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.high-light-0 {color : red; }
+.high-light-1 {color : orange; }
+.high-light-2 {color : yellow; }
+.high-light-3 {color : green; }
+.high-light-4 {color : blue; }
+.high-light-5 {color : navy; }
+.high-light-6 {color : violet; }
+.high-light-7 {color : pink; }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	// 태그배열에 대해 사용
+	// $('h1').each(function(index,item){})
+	$(function(){
+/* 		$('h1').each(function(index, item){
+			$(item).addClass('high-light-' + index);
+		}) */
+	// item : 배열방 안에는 addClass() - jquery 함수 없다
+	// $(item) : item + jquery 함수를 사용가능하게 만들어준다.
+		$('h1').each(function(index, item){
+			// this : 선택한 객체
+			$(this).addClass('high-light-' + index);
+		})
+		$('h1').addClass(function(index){
+			return 'high-light-' + index;
+		});
+	});
+</script>
+
+</head>
+<body>
+	<h1>item - 0</h1>
+	<h1>item - 1</h1>
+	<h1>item - 2</h1>
+	<h1>item - 3</h1>
+	<h1>item - 4</h1>
+	<h1>item - 5</h1>
+	<h1>item - 6</h1>
+	<h1>item - 7</h1>
+</body>
+</html>

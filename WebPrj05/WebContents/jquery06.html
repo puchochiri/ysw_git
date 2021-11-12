@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.high-light-0 {color : red; }
+.high-light-1 {color : orange; }
+.high-light-2 {color : yellow; }
+.high-light-3 {color : green; }
+.high-light-4 {color : blue; }
+.high-light-5 {color : navy; }
+.high-light-6 {color : violet; }
+.high-light-7 {color : pink; }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function(){
+		$('h1').filter(function(index) {
+			return index % 3 ==0;	
+		}).css({
+			color						: 'white',
+			backgroundColor : 'black'
+		});
+		
+		/* $('h1').eq(0).css('color','cyan'); */
+/* 		$('h1').eq(-1).css('color','cyan');  // -1 last */
+		
+		$('h1').first().css('color','cyan');  
+		$('h1').last().css('color','cyan');  
+		
+		
+		
+	});
+</script>
+
+</head>
+<body>
+	<h1>item - 0</h1>
+	<h1>item - 1</h1>
+	<h1>item - 2</h1>
+	<h1>item - 3</h1>
+	<h1>item - 4</h1>
+	<h1>item - 5</h1>
+	<h1>item - 6</h1>
+	<h1>item - 7</h1>
+</body>
+</html>

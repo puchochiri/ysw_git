@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.red { color : red; }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function(){
+	$('form').on('submit',function(e){
+			//e.stopPropagation();	//상위로 이벤트 전송 막음	
+			//e.preventDefault();		//이벤트 취소
+			//두 명령은 return false로 대체 가능
+			//userid 체크
+			if($('[name=userid]').val().length < 6){
+				alert('아이디는 6자 이상입니다.\n 정확히 입력하세요');
+				return false;
+			}
+			if($('[name=userpass]').val().trim() == ''){
+				alert('암호를 입력하세요');
+				return false;
+			}
+			return true;
+	})
+ 
+});
+</script>
+</head>
+<body>
+	<h2>구매정보</h2>
+	<form action="member_reg_proc.jsp" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<th><span class="red">*</span>아이디</th>
+					<td><input type="text" name="userid" /></td>
+				</tr>
+				<tr>
+					<th><span class="red">*</span>암호</th>
+					<td><input type="password" name="userpass" /></td>
+				</tr>
+				<tr>
+					<th>이름</th>
+					<td><input type="text" name="username" /></td>
+				</tr>
+				<tr>
+					<th>이메일</th>
+					<td><input type="email" name="email" /></td>
+				</tr>
+				<tr>
+					<th>구매수량단가</th>
+					<td><input type="number" name="amount" value="0" /></td>
+				</tr>
+				<tr>
+					<th>단가</th>
+					<td><input type="number" name="price" value="0" /></td>
+				</tr>
+				<tr>
+					<td colspan = "2"><input type="submit" value="전송" /></th>
+				</tr>
+			</tbody>
+		</table>
+		
+	</form>
+</body>
+</html>

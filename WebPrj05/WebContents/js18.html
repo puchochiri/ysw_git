@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   table { 
+      box-sizing : border-box;
+      width : 750px;
+      margin : 0 auto;
+   }
+   table, td {
+   	  border:1px solid black;
+   	  border-collapse : collapse;
+   }
+   td {
+      padding     : 20px;  
+      text-align : center;
+      width      : 100px;
+   }
+   td:nth-child(3)   { 
+       width:250px;
+   }
+</style>
+<script>
+
+  // 생성자 함수 : data
+  function  Employee( num, name, email, sal, comm, dno ) {
+	  this.num    =  num;
+	  this.name   =  name;
+	  this.email  =  email;
+	  this.sal    =  sal;
+	  this.comm   =  comm;
+	  this.dno    =  dno;	  
+  }
+  
+  // 연봉계산
+  Employee.prototype.getYearSal = function() {
+	  var ysal = 0;
+	  ysal = this.sal * 12 + this.comm;
+	  return ysal;
+  }
+  // 부서이름
+  Employee.prototype.getDeptName = function () {
+	  // 10:인사 20:자재 30:연구개발 40:총무 50 생산 60 관리
+	  var map = new Map();
+	  map.set(10, '인사');
+	  map.set(20, '자재');
+	  map.set(30, '연구개발');
+	  map.set(40, '총무');
+	  map.set(50, '생산');
+	  map.set(60, '관리');	  
+	  var dname = map.get( this.dno );
+	  return dname;	  
+  }
+  // 출력
+  Employee.prototype.getOutData = function() {
+	  // 직원번호  직원이름  이메일  월급 연봉 부서명
+	  var  tr = '<tr>';
+	  tr     += '<td>' +  this.num            + '</td>';
+	  tr     += '<td>' +  this.name           + '</td>';
+	  tr     += '<td>' +  this.email          + '</td>';
+	  tr     += '<td>' +  this.sal            + '</td>';
+	  tr     += '<td>' +  this.getYearSal()   + '</td>';
+	  tr     += '<td>' +  this.getDeptName()  + '</td>';
+	  tr     += '</tr>';
+	  return  tr;
+  }   
+
+  window.onload = function() {
+	 var  emplist = [];
+	 emplist.push( new Employee(1, '홍길동', 'hongdd@mycom.com', 300, 50, 10  )   );
+	 emplist.push( new Employee(2, '홍길순', 'honggs@mycom.com', 250, 50, 20  )   );
+	 emplist.push( new Employee(3, '홍길자', 'honggj@mycom.com', 400, 50, 30  )   );
+	 emplist.push( new Employee(4, '홍길민', 'honggm@mycom.com', 500, 50, 40  )   );
+	 emplist.push( new Employee(5, '홍길숙', 'honggsk@mycom.com', 190, 50,510  )   );
+	 
+	 var div1 =  document.getElementById('div1');
+	 var html  =  '<table>';
+	 for( var i  in  emplist  ) {
+		 html += emplist[i].getOutData();
+	 }
+	 html     +=  '</table>';
+	  
+	 div1.innerHTML = html;
+  }
+</script>
+</head>
+<body>
+   <div id="div1"></div>
+</body>
+</html>

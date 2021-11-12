@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script>
+  var  student1 = {
+	  name     : '제니',
+	  kor      : 100,
+	  eng      : 100,
+	  mat      : 80, 
+	  getTot   : function () {
+		  return this.kor + this.eng + this.mat;
+	  },
+	  getAvg   :  function() {
+		  return this.getTot() / 3;
+	  },
+	  getGrade  : function() {
+		  //              0   1    2   3   4    5   6   7   8   9  10
+		  var  g     =  ['F', 'F','F','F','F', 'F','D','C','B','A','A',];
+		  var  grade =  g[  parseInt( this.getAvg() / 10)  ];
+		  return   grade ;
+	  }
+  };
+
+  window.onload = function() {
+	  var  div1   =  document.getElementById('div1');
+	  var  html   =  '';
+	  html       +=  '<h2>이름:' +  student1.name      + '</h2>';
+	  html       +=  '<p>국어:'  +  student1.kor       + '</p>';
+	  html       +=  '<p>영어:'  +  student1.eng       + '</p>';
+	  html       +=  '<p>수학:'  +  student1.mat       + '</p>';
+	  html       +=  '<p>총점:'  +  student1.getTot()  + '</p>';
+	  html       +=  '<p>평균:'  +  student1.getAvg().toFixed(2)  + '</p>';
+	  html       +=  '<p>학점:'  +  student1.getGrade()  + '</p>';
+	  
+	  div1.innerHTML  =  html;
+  }
+</script>
+</head>
+<body>
+  <h2>성적처리</h2>
+  <div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

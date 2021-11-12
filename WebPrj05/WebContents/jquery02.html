@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style></style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready( function() {
+	  alert('하하하 1');  
+   } );
+   $(document).ready( function() {
+	  alert('하하하 2');  
+   } );
+   $(  function() {
+	   $('.item').css('color', 'orange');
+	   $('.select').css('text-decoration', 'underline');
+	   $('.item.select').css('background-color', 'yellow');
+	   
+	   $('#div1').html('<p>div1 입니다</p>'); // innerHTML
+	   $('#div2').text('<p>div1 입니다</p>'); // innerText
+	   $('div > p').css('text-decoration', 'underline'); // style
+	   // .val() : .value
+	   
+	   // 이벤트연결 .on(), .off(), .one();
+	   $('#div1').on('click', function( e ) {
+		  // alert('div1');
+		  // $('#div1').off('click');
+		  
+		  // this :  click 한 객체 (#div1)
+		  // this == e.target
+		  //console.dir( this );
+		  console.dir( $(this) );
+		  // var div1html =  this.innerHTML;
+		  var div1html =  $(this).html();
+	      alert( div1html );
+	   });
+   } );
+   
+	   
+   
+</script>
+</head>
+<body>
+  <div class="item">Div 1</div> 
+  <div class="item select">Div 2</div> 
+  <div class="item">Div 3</div> 
+  <div class="item">Div 4</div> 
+  <div id="div1"></div> 
+  <div id="div2"></div> 
+</body>
+</html>
+
+
+
+
+
+
+
+

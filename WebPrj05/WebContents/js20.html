@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  *     { box-sizing : border-box;  }
+  #main { width:960px; margin : 0 auto;  }
+  table  { width:960px; margin : 0 auto;  }
+  table, td {
+     border : 1px solid black;
+     border-collapse: collapse;
+  } 
+  td { width: 96px; }
+  input { width:70px;  }
+  
+  #list tr       {  background-color: white;  }
+  #list tr:not(tr:first-child):hover {  background-color: yellow;  }
+</style>
+<script>
+  var students = [];
+  
+  // 생성자 함수
+  function  Student(num, name, kor, eng, mat) {
+	  this.num   = num; 
+	  this.name  = name; 
+	  this.kor   = kor; 
+	  this.eng   = eng; 
+	  this.mat   = mat;
+	  
+	  this.tot    =  this.getTot();
+	  this.avg    =  this.getAvg();
+	  this.grade  =  this.getGrade();
+	  this.rank   =  1;  	  
+  };
+  
+  Student.prototype.getTot = function() {
+	  return  this.kor + this.eng + this.mat;
+  };
+
+  Student.prototype.getAvg = function() {
+	  return  this.getTot() / 3;
+  };
+  
+  Student.prototype.getGrade = function() {
+	  //            0  1    2   3   4   5   6   7   8   9  10 
+	  var g     = ['F','F','F','F','F','F','D','C','B','A','A' ];
+	  var grade = g [  parseInt( this.getAvg() / 10 )  ];
+	  return  grade;
+  };
+  
+  
+  Student.prototype.toString  = function() {
+	  var  tag   = '<tr>';
+	  tag       += '<td>' + this.num               +  '</td>';
+	  tag       += '<td>' + this.name              +  '</td>';
+	  tag       += '<td>' + this.kor               +  '</td>';
+	  tag       += '<td>' + this.eng               +  '</td>';
+	  tag       += '<td>' + this.mat               +  '</td>';
+	  tag       += '<td>' + this.tot               +  '</td>';
+	  tag       += '<td>' + this.avg.toFixed(2)    +  '</td>';
+	  tag       += '<td>' + this.grade             +  '</td>';
+	  tag       += '<td>' + this.rank              +  '</td>';
+	  tag       += '</tr>';
+	  return    tag;
+  }
+  
+  
+  //-----------------------------------
+
+  function  header() {
+	  var tag   = '';
+	  tag      += '<tr>';
+	  tag      += '<td>번호</td>';
+	  tag      += '<td>이름</td>';
+	  tag      += '<td>국어</td>';
+	  tag      += '<td>영어</td>';
+	  tag      += '<td>수학</td>';
+	  tag      += '<td>총점</td>';
+	  tag      += '<td>평균</td>';
+	  tag      += '<td>학점</td>';
+	  tag      += '<td>석차</td>';
+	  tag      += '</tr>';
+	  return   tag;
+  }
+  
+  // 석차 구하기
+  function  makeRank( students ) {
+	  // students 정렬(desc)
+	  // 학번순(asc)   a.num  - b.num 
+	  // 이름순(asc)   a.name - b.name
+	  // 총점순(desc)  b.tot  - a.tot
+      students.sort( function (a, b) {  // a:student[0], b:student[1]
+		  return b.tot - a.tot;        // b-a : desc
+		 // return a.tot - b.tot;      // a-b : asc
+	  } );
+	  
+	  for (var i = 1; i < students.length; i++) {
+		  if( students[i].tot != students[i-1].tot  )
+		  	  students[i].rank = i+1;
+		  else
+			  students[i].rank = students[i-1].rank;
+      }
+	  
+	  // 번호순으로 정렬
+	  students.sort(function(a, b) {
+		  return  a.num - b.num;
+	  })
+	  
+  }
+  
+  function  displayList( students ) {
+	  var  list = document.getElementById('list');
+	  var  tag  = '';
+	  tag      += header();
+	  
+	  makeRank( students );  // Student 배열에 가가 석차를 부여  	  
+	  
+	  // 출력
+	  for (var student of students ) {
+		  tag  += student.toString();
+	  }
+	  list.innerHTML  = tag;
+  }
+  
+  
+  window.onload = function() {
+	var btnAdd = document.getElementById('btnAdd');
+	btnAdd.onclick = function() {
+		var txtnum   = document.getElementById('num'); 
+		var txtname  = document.getElementById('name'); 
+		var txtkor   = document.getElementById('kor'); 
+		var txteng   = document.getElementById('eng'); 
+		var txtmat   = document.getElementById('mat');
+		
+		var num      = parseInt( txtnum.value );
+		var name     = txtname.value ;
+		var kor      = parseInt( txtkor.value );
+		var eng      = parseInt( txteng.value );
+		var mat      = parseInt( txtmat.value );
+		
+		var  student = new Student(num, name, kor,eng, mat);
+		
+		students.push( student );
+		
+		displayList( students );
+		
+		var trs = document.getElementsByTagName('tr');		
+		console.log(trs);		
+		/*
+		for(  var tr of trs  ) {
+			tr.onclick = function() {
+				alert( tr.innerHTML );
+			}
+		};
+		*/
+		
+		// ecma 5 script for 문
+		// html collection은 배열이 아니라 foreach 바로사용안됨
+		// html collection을 배열로 바꾸어서 
+		Array.from(trs).forEach(function( tr, index ) {
+			tr.onclick = function() {
+				alert( tr.innerHTML );
+			}
+		})
+	}
+  }
+</script>
+</head>
+<body>
+   <div id="main">
+    <h2>학생정보</h2>
+    번호<input type="number" id="num"  value="1" />&nbsp;&nbsp;
+    이름<input type="text"   id="name" value="홍길동" />&nbsp;&nbsp;
+    국어<input type="number" id="kor"  value="100" />&nbsp;&nbsp;
+    영어<input type="number" id="eng"  value="100" />&nbsp;&nbsp;
+    수학<input type="number" id="mat"  value="100" />&nbsp;&nbsp;    
+    <input type="button" value="Add" id="btnAdd" />
+    <hr />
+    <table id="list"></table>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

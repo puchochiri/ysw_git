@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   h1, p  {  border: 2px solid  blue;  padding:20px;  }
+</style>
+<script>
+  // 이벤트 버블링 : 자동으로 이벤트가 상위로 전달됨
+  // 막는 방법     : event.stopPropagation();
+
+  window.onload = function() {
+	 var  header    =  document.getElementById('header'); 
+	 var  paragraph =  document.getElementById('paragraph');
+	 header.onclick   =  function ( e ) {
+		 alert('h1 클릭');
+		 header.onclick = '';  // 이벤트 한번만 실행되게한다 
+	 }
+	 paragraph.onclick = function ( event ) {
+		 event.stopPropagation();
+		 alert('p 클릭');
+		 paragraph.onclick = null; // 이벤트 한번만 실행되게한다
+	 }
+	 
+		 
+  }
+</script>
+</head>
+<body>
+  <h1 id="header">
+    <p id="paragraph">Hello</p>
+  </h1>
+</body>
+</html>
+
+
+
+
+
+
+
+

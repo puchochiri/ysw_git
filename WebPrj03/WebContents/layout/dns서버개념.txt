@@ -1,0 +1,89 @@
+swing : 응용 application
+jsp   : 웹 application
+
+border-radius : 10px;
+
+웹퍼블리셔      frontend                backend
+ client                                 server-side
+화면 디~자인   andgular/react/view       업무처리(로직)
+html/css/js                             jsp/spring + db 
+--------------------------------------------------------------
+localhost : 127.0.0.1
+
+
+uri : uniformed resource indicator (url + urn)
+  http://localhost:9090/WebPrj01/test01.jsp?uid=sky      
+    url :  uniformed resource locator
+      http://localhost:9090/WebPrj01/
+    urn
+      test01.jsp?uid=sky     
+  ?uid=sky     : querystring 
+ 
+  http://localhost:9090/WebPrj01/test01.jsp?uid=sky
+    port : 9090 
+
+  protocol://hostname.domainname:port
+
+  http://www.naver.com:80/mail/mail.jsp?uid=sky
+  http://www.naver.com/mail/mail.jsp?uid=sky
+   protocol : 프로토콜 - 통신방식
+    http - hyper text transfer protocol : html
+      통신포트 넘버 : 80 
+    ftp  - file  transfer protocol      : file
+      통신포트 넘버 : 21 
+
+    hostname   : www, m, mail - 컴퓨터
+    domainname : naver.com 
+
+https://mail3.nate.com/
+   
+  DNS         : DONAME NAME SERVICE 
+  DOMAIN NAME : NAVER.COM
+
+  인터넷 통신 LAN , 위치 : IP
+   naver.com : 구매
+   https://223.130.200.107/ <-> naver.com
+    회사자체 dns서버 등록
+      www :  223.130.200.107  - 웹서버
+      m   :  223.130.200.108  - 웹서버
+      mail : 223.130.200.109  - 메일서버
+  
+  네트워크 설정
+   본인 ip 
+   dns 서버 설정 : 
+        kt : 168.126.63.1 ~ 2 
+        8.8.8.8 구글 dns 서버
+   gateway 주소 : 대문
+
+
+  https  - http + s(secure) 
+   data  자체를 암호화 
+   port : 443   
+   tomcat 서버 추가 설정해야 한다
+
+  shorthand : 단축표현
+           top right bottom left
+  margin : 10px 10px 10px 10px;
+  margin : 10px 10px;
+  margin : 10px;
+
+  margin-top-width:    10px;
+  margin-right-width:  10px;
+  margin-bootom-width: 10px; 
+  margin-left-width:   10px;
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      
